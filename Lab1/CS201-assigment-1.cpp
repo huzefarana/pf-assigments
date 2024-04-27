@@ -24,24 +24,23 @@ bool program_execution(char action)
         return false;
         break;
     default:
-        return true;
+        return false;
         break;
     }
 }
 
 int main()
-{   
-    bool isStop = true;
+{
+    bool isStop = false;
     int operation_type;
     int numbers_count;
     char action;
-    cout << "Hello Huzefa, Student Id=bc230421870 Welcome to the Main Menu\n";
+    cout << "Hello Huzefa, Student Id=bc230421870 Welcome to the Main Menu\n\n";
     do
     {
         cout << "1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit\n";
         cout << "Enter you choice: ";
         cin >> operation_type;
-
 
         if (operation_type == 1) // Addition
         {
@@ -68,7 +67,6 @@ int main()
                 break;
             }
         }
-
 
         else if (operation_type == 2) // Subtraction
         {
@@ -135,7 +133,7 @@ int main()
             cin >> numbers_count;
             int number;
             float
-             result;
+                result;
             for (int i = 0; i < numbers_count; i++)
             {
                 cout << "Enter number " << i + 1 << ": ";
@@ -143,7 +141,7 @@ int main()
                 if (number == 0)
                 {
                     cout << "Division by zero is not allowed, exiting now...\n";
-                    break;
+                    isStop = true;
                 }
                 if (i == 0)
                 {
@@ -154,6 +152,8 @@ int main()
                     result = result / number;
                 }
             }
+            if (isStop)
+                break;
             cout << "Division of all numbers is: " << result << "\n";
             cout << "Do you want to continue (y/n)? ";
             cin >> action;
@@ -178,7 +178,6 @@ int main()
             break;
         }
         break;
-    }
-    while (isStop);
+    } while (isStop);
     return 0;
 }
