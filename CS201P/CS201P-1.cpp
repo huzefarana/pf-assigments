@@ -26,4 +26,5 @@ int main(){
     cout << "Digital part of the student ID is: " << digitalPartsOfStudentId << "\n";
     cout << "Even Digits: " << evenDigitsOfStudentId << "\n";
     cout << "Sum of Even Digits is: " << sum;
+    return 0;
 }
