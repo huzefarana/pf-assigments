@@ -1,32 +1,49 @@
 #include <iostream>
 using namespace std;
 
-bool program_execution(string action)
+/**
+ * Executes a program based on the given action.
+ *
+ * @param action The action to be executed. It can be 'y', 'Y', 'N', or 'n'.
+ * @return True if the action is 'y' or 'Y', false if the action is 'N' or 'n'.
+ */
+bool program_execution(char action)
 {
-    if (action == "y" || action == "Y")
+    switch (action)
     {
+    case 'y':
         return true;
-    }
-    else if (action == "n" || action == "N")
-    {
+        break;
+    case 'Y':
+        return true;
+        break;
+    case 'N':
         return false;
+        break;
+    case 'n':
+        return false;
+        break;
+    default:
+        return true;
+        break;
     }
-    return false;
 }
 
 int main()
-{
-    bool execution = true;
+{   
+    bool isStop = true;
     int operation_type;
     int numbers_count;
-    string action;
+    char action;
     cout << "Hello Huzefa, Student Id=bc230421870 Welcome to the Main Menu\n";
-    while (execution)
+    do
     {
         cout << "1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit\n";
         cout << "Enter you choice: ";
         cin >> operation_type;
-        if (operation_type == 1)
+
+
+        if (operation_type == 1) // Addition
         {
             cout << "How many numbers you want to Add? ";
             cin >> numbers_count;
@@ -48,10 +65,12 @@ int main()
             }
             else
             {
-                exit(0);
+                break;
             }
         }
-        else if (operation_type == 2)
+
+
+        else if (operation_type == 2) // Subtraction
         {
             cout << "How many numbers you want to Subtract? ";
             cin >> numbers_count;
@@ -80,10 +99,11 @@ int main()
             }
             else
             {
-                exit(0);
+                break;
             }
         }
-        else if (operation_type == 3)
+
+        else if (operation_type == 3) // Multiplication
         {
             cout << "How many numbers you want to Multiply? ";
             cin >> numbers_count;
@@ -105,15 +125,17 @@ int main()
             }
             else
             {
-                exit(0);
+                break;
             }
         }
-        else if (operation_type == 4)
+
+        else if (operation_type == 4) // Division
         {
             cout << "How many numbers you want to Divide? ";
             cin >> numbers_count;
             int number;
-            int result;
+            float
+             result;
             for (int i = 0; i < numbers_count; i++)
             {
                 cout << "Enter number " << i + 1 << ": ";
@@ -121,7 +143,7 @@ int main()
                 if (number == 0)
                 {
                     cout << "Division by zero is not allowed, exiting now...\n";
-                    exit(0);
+                    break;
                 }
                 if (i == 0)
                 {
@@ -142,19 +164,21 @@ int main()
             }
             else
             {
-                exit(0);
+                break;
             }
         }
-        else if (operation_type == 5)
+
+        else if (operation_type == 5) // Exit
         {
-            exit(0);
+            break;
         }
         else
         {
             cout << "Invalid operation, exiting now...\n";
-            exit(0);
+            break;
         }
-        exit(0);
+        break;
     }
+    while (isStop);
     return 0;
 }
